@@ -1,1 +1,0 @@
-These images are for the [Developer Advice](https://github.com/Westalgie/A3UExtender/wiki/Developer-Advice) page.
