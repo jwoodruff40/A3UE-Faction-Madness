@@ -25,9 +25,9 @@ private _factionSide = getText (configFile >> "A3A" >> "Templates" >> A3A_saveDa
 private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv"]};
 private _faction = [[_factionDefaultFile,_file]] call ([A3A_fnc_loadFaction, A3A_fnc_convertToRebelLoadFaction] select (_convertToRebel));
 
-if (_convertToRebel) then {
+/*if (_convertToRebel) then {
     [] spawn A3A_fnc_fixInitialArsenal;
-};
+};*/
 
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
 missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction];

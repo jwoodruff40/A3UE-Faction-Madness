@@ -260,9 +260,7 @@ class A3A_RecruitSquadDialog : A3A_DefaultDialog
         {
           idc = A3A_IDC_RECRUITATCARBUTTON;
           text = $STR_antistasi_dialogs_recruit_squad_at_car;
-          tooltip = "AT vehicles are not supported in faction madness";
-          onLoad = "(_this # 0) ctrlEnable false;";
-          //onButtonClick = "[""buySquad"", [_this]] call A3A_fnc_recruitSquadDialog";
+          onButtonClick = "[""buySquad"", [_this]] call A3A_fnc_recruitSquadDialog";
           size = GUI_TEXT_SIZE_LARGE;
           x = 88 * GRID_W;
           y = 53 * GRID_H;
