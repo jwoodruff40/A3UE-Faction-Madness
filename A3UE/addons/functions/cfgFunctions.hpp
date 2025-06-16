@@ -8,10 +8,10 @@ class CfgFunctions
             class squadRecruit { file = QPATHTOFOLDER(Dialogs\fn_squadRecruit.sqf); };
         };
         
-        class init
+        /*class init
         {
             class fixInitialArsenal { file = QPATHTOFOLDER(init\fn_fixInitialArsenal.sqf); };
-        };
+        };*/
 
         class FunctionsTemplates 
         {
