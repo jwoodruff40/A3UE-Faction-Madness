@@ -8,11 +8,6 @@ class CfgFunctions
             class squadRecruit { file = QPATHTOFOLDER(Dialogs\fn_squadRecruit.sqf); };
         };
         
-        /*class init
-        {
-            class fixInitialArsenal { file = QPATHTOFOLDER(init\fn_fixInitialArsenal.sqf); };
-        };*/
-
         class FunctionsTemplates 
         {
             class compatibilityLoadFaction { file = QPATHTOFOLDER(Templates\fn_compatibilityLoadFaction.sqf); };
@@ -23,11 +18,6 @@ class CfgFunctions
         {
             class equipRebel { file = QPATHTOFOLDER(REINF\fn_equipRebel.sqf); };
             class reDress { file = QPATHTOFOLDER(REINF\fn_reDress.sqf); };
-        };
-
-        class SetupGUI
-        {
-            class setupFactionsTab { file = QPATHTOFOLDER(SetupGUI\fn_setupFactionsTab.sqf); };
         };
     };
 };
