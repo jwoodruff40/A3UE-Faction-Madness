@@ -71,10 +71,19 @@ if (_side in [Occupants, Invaders]) then {
 // Add civilian vehicles to rebel faction if using Occ/Inv as rebel
 // Must be run after generating civilian faction hashmap, hence its location here instead of in fn_convertToRebelLoadFaction
 if (_side == civilian && {A3A_faction_reb getOrDefault ["convertedToRebel", false] && {!(A3A_faction_civ getOrDefault ["attributeLowCiv", false] || {A3A_faction_civ getOrDefault ["attributeCivNonHuman", false]})}}) then {
+    private _civToRebelConfigMap = createHashmapFromArray [
+        ["vehiclesCivCar", "vehiclesCivCar"],
+        ["vehiclesCivTruck", "vehiclesCivTruck"],
+        ["vehiclesCivIndustrial", "vehiclesCivSupply"],
+        ["vehiclesCivHeli", "vehiclesCivHeli"],
+        ["vehiclesCivPlane", "vehiclesCivPlane"],
+        ["vehiclesCivBoat", "vehiclesCivBoat"],
+        ["vehiclesCivMedical", "vehiclesMedical"]
+	];
+    
     {
-        private _rebKey = [_x, "vehiclesCivTruck"] select (_x == "vehiclesCivIndustrial");
-        A3A_faction_reb set [_rebKey, _faction getOrDefault [_x, []] select { _x isEqualType "" }];
-    } forEach ["vehiclesCivCar", "vehiclesCivIndustrial", "vehiclesCivBoat", "vehiclesCivHeli"];
+        if ((A3A_faction_reb getOrDefault [_y, []]) isEqualTo []) then { A3A_faction_reb set [_y, (_faction getOrDefault [_x, []]) select {_x isEqualType ""}]};
+    } forEach (_civToRebelConfigMap);
 };
 
 _faction;
