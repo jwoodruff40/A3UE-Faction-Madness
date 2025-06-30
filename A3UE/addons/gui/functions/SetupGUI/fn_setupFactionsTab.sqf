@@ -278,7 +278,7 @@ switch (_mode) do
             _factions = [_factions#0 + _factions#1, _factions#1 + _factions#0, _factions#2, _factions#3, _factions#4];
         };
         if (cbChecked (_display displayCtrl A3A_IDC_SETUP_ANYREBELCHECK)) then {
-            _factions = [_factions#0, _factions#1, _factions#2 + _factions#0 + _factions#1, _factions#3, _factions#4];
+            _factions = [_factions#0, _factions#1, _factions#2 + _factions#0 + _factions#1 + _factions#4, _factions#3, _factions#4];
         };
 
         // Add saved factions if valid

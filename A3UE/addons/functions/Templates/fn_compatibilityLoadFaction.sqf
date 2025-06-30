@@ -22,7 +22,7 @@ _factionDefaultFile = "\x\A3A\addons\core\Templates\Templates\FactionDefaults\" 
 
 // * If we're using an Occ or Inv faction as rebels, we need to convert the faction from Occ / Inv to rebel template style
 private _factionSide = getText (configFile >> "A3A" >> "Templates" >> A3A_saveData get "factions" select 2 >> "side");
-private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv"]};
+private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv", "Riv"]};
 private _faction = [[_factionDefaultFile,_file]] call ([A3A_fnc_loadFaction, A3A_fnc_convertToRebelLoadFaction] select (_convertToRebel));
 
 /*if (_convertToRebel) then {

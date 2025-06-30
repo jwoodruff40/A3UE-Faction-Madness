@@ -20,6 +20,8 @@ if (count _filepaths == 0) then {Error("No filepaths provided.")};
 
 private _dataStore = createHashMap;
 
+_dataStore set ["militiaExists", false];
+
 private _fnc_saveToTemplate = {
 	params ["_name", "_data"];
 
@@ -51,7 +53,11 @@ private _fnc_saveToTemplate = {
 		"vehiclesIFVs",
 		"vehiclesLightTanks",
 		"vehiclesAirborne",
-		"vehiclesMilitiaAPCs"
+		"vehiclesMilitiaAPCs",
+		"vehiclesRivalsAPCs",
+		"vehiclesRivalsTanks",
+		"vehiclesRivalsHelis",
+		"vehiclesRivalsUAVs"
 	];
 
 	private _enemyToRebelConfigMap = createHashmapFromArray [
@@ -64,14 +70,22 @@ private _fnc_saveToTemplate = {
 	["heavyExplosives", "breachingExplosivesTank"],
 	["vehiclesTransportBoats", "vehiclesBoat"],
 	["vehiclesTrucks", "vehiclesTruck"],
-	["vehiclesPlanesTransport", "vehiclesPlane"]
+	["vehiclesPlanesTransport", "vehiclesPlane"],
+	["vehiclesRivalsLightArmed", "vehiclesLightArmed"],
+	["vehiclesRivalsTrucks", "vehiclesTruck"],
+	["vehiclesRivalsCars", "vehiclesLightUnarmed"],
+	["staticLowWeapons", "staticMGs"],
+	["minefieldAT", "minesAT"],
+	["minefieldAPERS", "minesAPERS"]
 	];
 
 	// * Use less OP (in early game) militia vehicles instead of regular faction vehicles
 	private _militiaVehicles = ["vehiclesMilitiaTrucks", "vehiclesMilitiaLightArmed", "vehiclesMilitiaCars"];
 	private _OPVehicles = ["vehiclesTrucks", "vehiclesLightUnarmed", "vehiclesLightArmed"];
 	//if (!allowFMOPVehicles) then {
-	if (true) then {
+	//if (true) then {
+	if (["vehiclesMilitia", _name] call BIS_fnc_inString) then {
+		_dataStore set ["militiaExists", true];
 		_enemyConfigIgnore = _enemyConfigIgnore - _militiaVehicles + _OPVehicles;
 		_enemyToRebelConfigMap deleteAt "vehiclesTrucks";
 		{ _enemyToRebelConfigMap set _x } forEach [["vehiclesMilitiaTrucks", "vehiclesTruck"], ["vehiclesMilitiaLightArmed", "vehiclesLightArmed"], ["vehiclesMilitiaCars", "vehiclesLightUnarmed"]];
@@ -168,7 +182,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	// * petros and rebel recruits need at least *some* unlimited weapon at game start. SF SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
 	// * YES, I know it looks ridiculous to have a full squad of level 1 rebels rocking barrets, but giving an unlimited assault rifle at start is just too OP 
 	// * Need to do this before iterating through the rest of the loadoutdata so our selected weapon isn't already added as a limited weapon
-	[_initialRebelEquipment, _loadoutData get "sniperRifles"] call _fnc_addStartingWeapon;
+	if (!isNil {_loadoutData get "sniperRifles"}) then { [_initialRebelEquipment, _loadoutData get "sniperRifles"] call _fnc_addStartingWeapon };
 
 	{
 		private _headgear = _dataStore getOrDefault ["headgear", [], true];
@@ -278,7 +292,23 @@ private _fnc_saveNames = {
 // * overrides
 // _dataStore set ["flagMarkerType", "flag_FIA"];
 _dataStore set ["convertedToRebel", true];
-{ _dataStore set [_x, []]; } forEach ["vehiclesCivHeli", "vehiclesCivPlane", "vehiclesCivTruck", "vehiclesCivCar", "vehiclesCivBoat", "vehiclesMedical", "vehiclesAT", "vehiclesAA"];
+{ 
+	if (isNil {_dataStore get _x}) then { _dataStore set [_x, []] }
+} forEach [
+	"vehiclesCivHeli",
+	"vehiclesCivPlane",
+	"vehiclesCivTruck",
+	"vehiclesCivCar",
+	"vehiclesCivBoat",
+	"vehiclesMedical",
+	"vehiclesAT",
+	"vehiclesAA",
+	"vehiclesBasic",
+	"vehiclesBoat",
+	"staticMGs",
+	"staticAT",
+	"staticAA"
+];
 
 ////////////////////////
 //  Rebel Unit Types  //
