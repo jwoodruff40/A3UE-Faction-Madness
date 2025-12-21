@@ -25,10 +25,6 @@ private _factionSide = getText (configFile >> "A3A" >> "Templates" >> A3A_saveDa
 private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv", "Riv"]};
 private _faction = [[_factionDefaultFile,_file]] call ([A3A_fnc_loadFaction, A3A_fnc_convertToRebelLoadFaction] select (_convertToRebel));
 
-/*if (_convertToRebel) then {
-    [] spawn A3A_fnc_fixInitialArsenal;
-};*/
-
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
 missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction];
 [_faction, _factionPrefix] call A3A_fnc_compileGroups;
@@ -66,6 +62,18 @@ if (_side in [Occupants, Invaders]) then {
         ([_x, true] call BIS_fnc_crewCount) - ([_x, false] call BIS_fnc_crewCount) >= 4
     };
     _faction set ["vehiclesLightArmedTroop", _lightArmedTroop];
+
+    private _vehArmor = (
+        (_faction getOrDefault ["vehiclesTanks", [], true]) +
+        (_faction getOrDefault ["vehiclesAA", [], true]) +
+        (_faction getOrDefault ["vehiclesArtillery", [], true]) +
+        (_faction getOrDefault ["vehiclesLightAPCs", [], true]) +
+        (_faction getOrDefault ["vehiclesAPCs", [], true]) +
+        (_faction getOrDefault ["vehiclesLightTanks", [], true]) +
+        (_faction getOrDefault ["vehiclesAirborne", [], true]) +
+        (_faction getOrDefault ["vehiclesIFVs", [], true])
+    );
+    _faction set ["vehiclesArmor", _vehArmor];
 };
 
 // Add civilian vehicles to rebel faction if using Occ/Inv as rebel

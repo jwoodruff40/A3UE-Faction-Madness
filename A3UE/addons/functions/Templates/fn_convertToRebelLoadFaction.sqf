@@ -166,7 +166,7 @@ private _fnc_addStartingWeapon = {
 
 	_initialRebelEquipment pushBackUnique _weapon;
 	_initialRebelEquipment append _weaponMags;
-	{ _initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)]; } forEach _weaponAtts;
+	{ _initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity]; } forEach _weaponAtts;
 	_weapons deleteAt _weaponIndex;
 };
 
@@ -230,8 +230,8 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 			switch true do {
 				case ("Disposable" in _categories): {
 					private _ammo = getArray (configFile >> "CfgWeapons" >> _x >> "Magazines") select 0;
-					_initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)];
-					_initialRebelEquipment pushBackUnique [_ammo, [3 min minWeaps, 5] select (minWeaps < 0)];
+					_initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity];
+					_initialRebelEquipment pushBackUnique [_ammo, A3UE_FM_initialItemQuantity];
 				};
 				case ("Weapons" in _categories): {
 					// * Add a random compatible mag for this weapon to the items list if one isn't defined (and thus added to IRE) by the faction template
@@ -241,13 +241,13 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 						_items pushBackUnique (selectRandom _compatMags)
 					};
 
-					_initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)]
+					_initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity]
 				};
 				case ("Grenades" in _categories);
 				case ("MagSmokeShell" in _categories);
 				case ("Explosives" in _categories);
 				case ("MagMissile" in _categories);
-				case ("MagRocket" in _categories): { _initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				case ("MagRocket" in _categories): { _initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity] };
 				case ("Magazines" in _categories): {
 					private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
 					_initialRebelEquipment pushBackUnique [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
@@ -255,7 +255,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 				case ("Vests" in _categories && {!("ArmoredVests" in _categories)});
 				case ("Backpacks" in _categories && {!("BackpacksCargo" in _categories)}): { _initialRebelEquipment pushBackUnique _x };
 				case ("Headgear" in _categories && {!("ArmoredHeadgear" in _categories)}): { _initialRebelEquipment pushBackUnique _x; _headgear pushBackUnique _x };
-				default { _initialRebelEquipment pushBackUnique [_x, [3 min minWeaps, 5] select (minWeaps < 0)] };
+				default { _initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity] };
 			};
 		} forEach _items;
 	} forEach _loadoutData;

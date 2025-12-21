@@ -1,5 +1,5 @@
 params ["_unit"];
 
-private _faction = [A3A_faction_reb, A3A_faction_civ] select (A3A_faction_reb getOrDefault ["convertedToRebel", false]);
+private _faction = [A3A_faction_reb, A3A_faction_civ] select (A3A_faction_reb getOrDefault ["convertedToRebel", false] && {!A3UE_FM_alwaysUseSFUniforms});
 _unit forceAddUniform (selectRandom (_faction get "uniforms"));
 _unit addItemToUniform "FirstAidKit";

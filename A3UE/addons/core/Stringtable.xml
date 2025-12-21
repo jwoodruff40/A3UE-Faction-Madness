@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3-Antistasi">
+    <Package name="A3UE-Faction-Madness">
+        <Key ID="STR_A3UE_params_FM_initialItemQuantity">
+            <Original>Initial quantity of faction equipment (weapons, attachments, armor, etc) added to arsenal</Original>
+            <French>Quantité initiale d'équipement de faction (armes, accessoires, armures, etc.) ajoutée à l'arsenal</French>
+            <Russian>Первоначальное количество снаряжения фракций (оружие, принадлежности, броня и т.д.) добавлялось в арсенал</Russian>
+            <German>Anfangsmenge an Fraktionsausrüstung (Waffen, Aufsätze, Rüstungen usw.), die dem Arsenal hinzugefügt wurde</German>
+            <Czech>Počáteční množství frakčního vybavení (zbraně, příslušenství, brnění atd.) přidáno do arzenálu</Czech>
+            <Chinesesimp>初始数量的派系装备（武器、配件、护甲等）被添加到武器库中</Chinesesimp>
+            <Korean>무기, 부착물, 갑옷 등 초기 무기 수량의 추가 무기</Korean>
+            <Italian>Quantità iniziale di equipaggiamento della fazione (armi, accessori, armature, ecc.) aggiunta all'arsenale</Italian>
+            <Portuguese>Quantidade inicial de equipamentos da facção (armas, acessórios, armaduras, etc.) adicionada ao arsenal</Portuguese>
+            <Spanish>Cantidad inicial de equipo de facción (armas, accesorios, armaduras, etc.) añadida al arsenal</Spanish>
+            <Japanese>初期の陣営装備(武器、アタッチメント、防具など)が武器庫に追加される</Japanese>
+            <Polish>Początkowa ilość wyposażenia frakcyjnego (broń, dodatki, pancerz itd.) dodawana do arsenału</Polish>
+            <Turkish>Cephaneliğe eklenen ilk sayıda fraksiyon ekipmanı (silahlar, eklentiler, zırh vb.)</Turkish>
+        </Key>
+        <Key ID="STR_A3UE_params_FM_initialItemQuantity_desc">
+            <Original>When using Faction Madness to play a non-rebel faction as rebels, items from that faction template will be added to initial rebel equipment in the arsenal. Items that are considered too overpowered (most weapons, armor, backpacks with high capacity, etc) are limited instead of permanently unlocked. This param controls how many of those items you get.</Original>
+            <French>Lorsque vous utilisez Faction Madness pour jouer une faction non rebelle en tant que rebelles, les objets de ce modèle de faction seront ajoutés à l'équipement initial des rebelles dans l'arsenal. Les objets considérés comme trop puissants (la plupart des armes, armures, sacs à dos à grande capacité, etc.) sont limités au lieu d'être débloqués en permanence. Ce paramètre contrôle combien de ces objets vous obtenez.</French>
+            <Russian>При использовании Faction Madness для игры за неповстанческую фракцию в качестве повстанцев, предметы из этого шаблона добавляются в начальное снаряжение повстанцев в арсенале. Предметы, которые считаются слишком сильными (большинство оружия, брони, рюкзаки с большой вместимостью и т.д.), ограничены, а не разблокированы навсегда. Этот параметр определяет, сколько из этих предметов вы получите.</Russian>
+            <German>Wenn man Faction Madness nutzt, um eine nicht-rebellische Fraktion als Rebellen zu spielen, werden Gegenstände aus dieser Fraktionsvorlage zur anfänglichen Rebellenausrüstung im Arsenal hinzugefügt. Gegenstände, die als zu übermächtig gelten (die meisten Waffen, Rüstungen, Rucksäcke mit hoher Kapazität usw.), sind begrenzt und nicht dauerhaft freigeschaltet. Dieser Param bestimmt, wie viele dieser Gegenstände du bekommst.</German>
+            <Czech>Když použijete Faction Madness k hraní nerebelské frakce jako rebelové, předměty z této šablony frakce budou přidány k počátečnímu vybavení rebelů v arzenálu. Předměty, které jsou považovány za příliš silné (většina zbraní, brnění, batohy s vysokou kapacitou atd.), jsou omezené místo trvale odemčené. Tento paragraf určuje, kolik těchto předmětů získáte.</Czech>
+            <Chinesesimp>当使用派系疯狂模式扮演非叛军阵营时，该阵营模板中的物品会添加到初始叛军装备中。被认为过于强力的物品（大多数武器、护甲、大容量背包等）是有限的，而不是永久解锁。这个参数控制你获得多少这些物品。</Chinesesimp>
+            <Korean>팩션 매드니스를 사용해 비반란 세력을 반란군으로 플레이할 때, 해당 팩션 템플릿의 아이템이 초기 반란군 장비에 추가됩니다. 너무 강력하다고 여겨지는 아이템들(대부분의 무기, 방어구, 대용량 배낭 등)은 영구적으로 잠금 해제되는 대신 제한됩니다. 이 파라미터는 그 아이템 중 몇 개를 얻는지 결정합니다.</Korean>
+            <Italian>Quando si utilizza Faction Madness per giocare una fazione non ribelle come ribelli, gli oggetti di quel modello di fazione verranno aggiunti all'equipaggiamento iniziale dei ribelli nell'arsenale. Gli oggetti considerati troppo potenti (la maggior parte delle armi, armature, zaini ad alta capacità, ecc.) sono limitati invece di essere sbloccati permanentemente. Questo parametro controlla quanti di questi oggetti si ottengono.</Italian>
+            <Portuguese>Ao usar Loucura de Facção para jogar uma facção não rebelde como rebelde, itens desse modelo de facção serão adicionados ao equipamento inicial dos rebeldes no arsenal. Itens considerados muito poderosos (a maioria das armas, armaduras, mochilas de alta capacidade, etc.) são limitados em vez de desbloqueados permanentemente. Esse parâmetro controla quantos desses itens você obtém.</Portuguese>
+            <Spanish>Cuando se utiliza Faction Madness para jugar una facción no rebelde como rebeldes, los objetos de esa plantilla de facción se añadirán al equipo inicial de los rebeldes en el arsenal. Los objetos que se consideran demasiado poderosos (la mayoría de las armas, armaduras, mochilas de gran capacidad, etc.) están limitados en lugar de desbloqueados permanentemente. Este parámetro controla cuántos de esos objetos se obtienen.</Spanish>
+            <Japanese>ファクションマッドネスで反乱軍以外の派閥を反乱軍としてプレイすると、その派閥テンプレートのアイテムがアーセナルの初期反乱軍装備に追加されます。強すぎるとされるアイテム(ほとんどの武器、防具、大容量のバックパックなど)は永久にアンロックされるのではなく制限されています。このパラメータが、そのアイテムの獲得数を制御します。</Japanese>
+            <Polish>Używając Faction Madness do grania rebeliantami nierebeliancką frakcją, przedmioty z tego szablonu frakcji będą dodawane do początkowego wyposażenia rebeliantów w arsenarze. Przedmioty uznawane za zbyt potężne (większość broni, zbroi, plecaki o dużej pojemności itd.) są ograniczone zamiast trwale odblokowywane. Ten paragraf kontroluje, ile z tych przedmiotów dostaniesz.</Polish>
+            <Turkish>Faction Madness ile isyancı olmayan bir fraksiyonu isyancı olarak oynadığınızda, o fraksiyon şablonundan eşyalar cephanelikteki ilk isyancı ekipmanına eklenir. Çok güçlü olarak kabul edilen eşyalar (çoğu silah, zırh, yüksek kapasiteli sırt çantaları vb.) kalıcı olarak kilitlenmek yerine sınırlı kalıyor. Bu param, o eşyalardan kaç tane alacağınızı kontrol eder.</Turkish>
+        </Key>
+        <Key ID="STR_A3UE_params_FM_alwaysUseSFUniforms">
+            <Original>Force all AI to use uniforms from the converted faction instead of civilian uniforms</Original>
+            <French>Forcez toutes les IA à utiliser des uniformes de la faction convertie au lieu des uniformes civils</French>
+            <Russian>Заставить всех ИИ использовать форму из конвертированной фракции вместо гражданской</Russian>
+            <German>Zwinge alle KI, Uniformen der konvertierten Fraktion statt ziviler Uniformen zu tragen</German>
+            <Czech>Přinutit všechny AI používat uniformy z převedené frakce místo civilních</Czech>
+            <Chinesesimp>强制所有AI使用转换阵营的制服，而不是平民制服</Chinesesimp>
+            <Korean>모든 AI가 민간인 제복 대신 개종된 진영의 제복을 사용하도록 강제하세요</Korean>
+            <Italian>Costringere tutte le IA a usare uniformi della fazione convertita invece di quelle civili</Italian>
+            <Portuguese>Forçar todos os IA a usar uniformes da facção convertida em vez de uniformes civis</Portuguese>
+            <Spanish>Forzar a todas las IA a usar uniformes de la facción convertida en lugar de uniformes civiles</Spanish>
+            <Japanese>すべてのAIに市民の制服ではなく、変換された派閥の制服を使用させる</Japanese>
+            <Polish>Zmusić wszystkie AI do używania mundurów z przekonwertowanej frakcji zamiast mundurów cywilnych</Polish>
+            <Turkish>Tüm AI'ların sivil üniformalar yerine dönüştürülmüş fraksiyonun üniformalarını kullanmasını zorla</Turkish>
+        </Key>
+        <Key ID="STR_A3UE_params_FM_alwaysUseSFUniforms_desc">
+            <Original>Anyone you recruit to your personal squad will use SF uniforms, but HC squads, garrisons, etc will all dress in civilian uniforms, have civilian voices / faces / etc, since they're supposed to be local guerillas you're training. Setting this parameter to 'Yes' will make ALL AI use SF uniforms.</Original>
+            <French>Toute personne que tu recrutes dans ton escouade personnelle utilisera des uniformes des forces spéciales, mais les escouades HC, garnisons, etc. porteront toutes des uniformes civils, auront des voix / visages / etc. civils, puisqu'ils sont censés être des guérilleros locaux que tu entraînes. Mettre ce paramètre sur 'Oui' fera en sorte que TOUTES les IA utilisent des uniformes de forces spéciales.</French>
+            <Russian>Любой, кого вы набираете в свой личный отряд, будет использовать форму спецназа, но отряды HC, гарнизоны и т. д. будут одеты в гражданскую форму, иметь гражданские голоса / лица / и т. д., так как они должны быть местными партизанами, которых вы тренируете. Установка этого параметра в 'Да' заставит ВСЕХ ИИ использовать форму спецназа.</Russian>
+            <German>Jeder, den du für deinen persönlichen Trupp rekrutierst, wird SF-Uniformen tragen, aber HC-Trupps, Garnisonen usw. tragen alle zivile Uniformen, haben zivile Stimmen / Gesichter usw., da es lokale Guerillas sind, die du ausbildest. Wenn ich diesen Parameter auf 'Ja' setze, benutzen ALLE KI SF-Uniformen.</German>
+            <Czech>Kdokoli, koho naverbujete do svého osobního družstva, bude používat uniformy SF, ale hlavní družstva, posádky atd. budou nosit civilní uniformy, mít civilní hlasy / tváře / atd., protože mají být místní partyzáni, které trénujete. Nastavení tohoto parametru na 'Ano' způsobí, že VŠECHNA AI použije SF uniformy.</Czech>
+            <Chinesesimp>你招募到个人小队的人都会穿特种部队制服，但HC小队、驻军等都会穿平民制服，声音/面孔都像平民，因为他们应该是你训练的本地游击队员。将该参数设置为"是"，所有AI都会使用特种部队制服。</Chinesesimp>
+            <Korean>개인 분대에 모집한 사람들은 모두 특수부대(SF) 제복을 입지만, 하프 캠프(HC) 분대나 주둔군 등은 모두 민간인 제복을 입고, 민간인 목소리나 얼굴 등을 갖게 됩니다. 왜냐하면 훈련시키는 게릴라들이기 때문입니다. 이 매개변수를 '예'로 설정하면 모든 AI가 특수부대 유니폼을 착용하게 됩니다.</Korean>
+            <Italian>Chiunque tu recluti nella tua squadra personale userà uniformi delle Forze Speciali, ma le squadre HC, le guarnigioni, ecc. si vestiranno tutte con uniformi civili, avranno voci/volti civili/ecc., dato che dovrebbero essere guerriglieri locali che stai addestrando. Impostare questo parametro su 'Sì' farà sì che TUTTA l'IA usi uniformi di SF.</Italian>
+            <Portuguese>Qualquer pessoa que você recrutar para seu esquadrão pessoal usará uniformes das Forças Especiais, mas esquadrões HC, guarnições, etc., todos vão vestir uniformes civis, ter vozes/rostos/etc civis, já que eles deveriam ser guerrilheiros locais que você está treinando. Definir esse parâmetro para 'Sim' fará com que TODAS as IAs usem uniformes de SF.</Portuguese>
+            <Spanish>Cualquiera que reclutes para tu escuadrón personal usará uniformes de las Fuerzas Especiales, pero los escuadrones HC, guarniciones, etc., todos vestirán uniformes civiles, tendrán voces/caras/etc. civiles, ya que se supone que son guerrilleros locales que estás entrenando. Configurar este parámetro en 'Sí' hará que TODA la IA use uniformes de las Fuerzas Especiales.</Spanish>
+            <Japanese>個人の分隊に勧誘した者は皆SFの制服を着ますが、HC分隊や駐屯地などは全員民間人制服を着用し、民間人の声や顔などを持ちます。なぜなら、訓練しているのは地元のゲリラだからです。このパラメータを「はい」に設定すると、すべてのAIがSFの制服を着用します。</Japanese>
+            <Polish>Każdy, kogo zrekrutujesz do swojej drużyny, będzie nosił mundury SF, ale drużyny HC, garnizony itd. będą ubierać się w cywilne mundury, mieć cywilne głosy / twarze itd., bo mają być lokalnymi partyzantami, których szkolisz. Ustawienie tego parametru na 'Tak' sprawi, że WSZYSTKIE AI będą używać mundurów SF.</Polish>
+            <Turkish>Kişisel birliğine aldığın herkes SF üniformaları kullanır, ama HC takımları, garnizonlar vb. hepsi sivil üniformalar giyir, sivil seslere, yüzlere sahip olur çünkü eğittiğiniz yerel gerillalar olmalı. Bu parametreyi 'Evet' olarak ayarlamak, TÜM yapay zekanın SF üniformalarını kullanmasını sağlar.</Turkish>
+        </Key>
+    </Package>
+</Project>
