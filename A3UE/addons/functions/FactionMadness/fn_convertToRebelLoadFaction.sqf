@@ -11,6 +11,8 @@
  */
 
 #include "..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 params [
 	["_filepaths",[],["",[]]]
 ];
@@ -61,22 +63,18 @@ private _fnc_saveToTemplate = {
 	];
 
 	private _enemyToRebelConfigMap = createHashmapFromArray [
-	["mortarMagazineHE", "staticMortarMagHE"],
-	["mortarMagazineSmoke", "staticMortarMagSmoke"],
-	["mortarMagazineFlare", "staticMortarMagFlare"],
-	["ATMines", "minesAT"],
-	["APMines", "minesAPERS"],
-	["lightExplosives", "breachingExplosivesAPC"],
-	["heavyExplosives", "breachingExplosivesTank"],
-	["vehiclesTransportBoats", "vehiclesBoat"],
-	["vehiclesTrucks", "vehiclesTruck"],
-	["vehiclesPlanesTransport", "vehiclesPlane"],
-	["vehiclesRivalsLightArmed", "vehiclesLightArmed"],
-	["vehiclesRivalsTrucks", "vehiclesTruck"],
-	["vehiclesRivalsCars", "vehiclesLightUnarmed"],
-	["staticLowWeapons", "staticMGs"],
-	["minefieldAT", "minesAT"],
-	["minefieldAPERS", "minesAPERS"]
+		["mortarMagazineHE", "staticMortarMagHE"],
+		["mortarMagazineSmoke", "staticMortarMagSmoke"],
+		["mortarMagazineFlare", "staticMortarMagFlare"],
+		["vehiclesTransportBoats", "vehiclesBoat"],
+		["vehiclesTrucks", "vehiclesTruck"],
+		["vehiclesPlanesTransport", "vehiclesPlane"],
+		["vehiclesRivalsLightArmed", "vehiclesLightArmed"],
+		["vehiclesRivalsTrucks", "vehiclesTruck"],
+		["vehiclesRivalsCars", "vehiclesLightUnarmed"],
+		["staticLowWeapons", "staticMGs"],
+		["minefieldAT", "minesAT"],
+		["minefieldAPERS", "minesAPERS"]
 	];
 
 	// * Use less OP (in early game) militia vehicles instead of regular faction vehicles
@@ -146,30 +144,6 @@ private _fnc_generateAndSaveUnitToTemplate = {
 	[_name, _loadouts, _traits, _unitProperties] call _fnc_saveUnitToTemplate;
 };
 
-private _fnc_addStartingWeapon = {
-	params ["_initialRebelEquipment", "_weapons"];
-
-	private _minWeight = 1000;
-	private ["_weapon", "_weaponMags", "_weaponAtts", "_weaponIndex"];
-	{
-		private _class = _x select 0;
-		private _categories = _class call A3A_fnc_equipmentClassToCategories;
-		private _weight = [_class, _categories] call A3A_fnc_itemArrayWeight;
-		if (_weight < _minWeight) then {
-			_minWeight = _weight;
-			_weapon = _class;
-			_weaponMags = _x select 4;
-			_weaponAtts = (flatten [_x select 1, _x select 2, _x select 3, _x select 6]) select {_x isEqualType "" && {_x != ""}};
-			_weaponIndex = _forEachIndex;
-		};
-	} forEach (_weapons select {_x isEqualType []});
-
-	_initialRebelEquipment pushBackUnique _weapon;
-	_initialRebelEquipment append _weaponMags;
-	{ _initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity]; } forEach _weaponAtts;
-	_weapons deleteAt _weaponIndex;
-};
-
 private _fnc_generateAndSaveUnitsToTemplate = {
 	// * Overwrite this function because we don't want to pointlessly generate a bunch of loadouts
 	// * Instead, use the call to this function to populate faction equipment into rebel initial equipment (weapons, mostly)
@@ -179,11 +153,30 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	// * We only want to iterate through loadoutdata once, so we only get the equipment from the highest tier (e.g. if we populate IRE from sfLoadoutData, we don't want to add equipment from eliteLoadoutData, etc)
 	if (_initialRebelEquipment isNotEqualTo []) exitWith {};
 
-	// * petros and rebel recruits need at least *some* unlimited weapon at game start. SF SMGs / shotguns not defined in all templates, and they don't use handguns (currently)
-	// * YES, I know it looks ridiculous to have a full squad of level 1 rebels rocking barrets, but giving an unlimited assault rifle at start is just too OP 
-	// * Need to do this before iterating through the rest of the loadoutdata so our selected weapon isn't already added as a limited weapon
-	if (!isNil {_loadoutData get "sniperRifles"}) then { [_initialRebelEquipment, _loadoutData get "sniperRifles"] call _fnc_addStartingWeapon };
+	// * Misc item conversions from enemy template loadoutData to rebel template
+	private _minesConfigMap = createHashmapFromArray [
+		["ATMines", "minesAT"],
+		["APMines", "minesAPERS"]
+	];
+	{
+		private _items = _loadoutData get _x;
+		if (isNil "_items") then { continue };
+		_dataStore set [_y, _items];
+	} forEach _minesConfigMap;
+	
+	private _explosivesConfigMap = createHashmapFromArray [
+		["lightExplosives", "breachingExplosivesAPC"],
+		["heavyExplosives", "breachingExplosivesTank"]
+	];
+	{
+		private _items = _loadoutData get _x;
+		if (isNil "_items") then { continue };
+		_items = _items apply { [_x, 1] };
+		_dataStore set [_y, _items];
+	} forEach _explosivesConfigMap;
 
+	private _magsToUnlock = [];
+	// * Now process all loadout data to populate IRE
 	{
 		private _headgear = _dataStore getOrDefault ["headgear", [], true];
 		private _items = (flatten _y) select {_x isEqualType "" && {_x != ""}}; // remove empties and weights
@@ -206,22 +199,10 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 			"glasses",
 			"goggles"
 		];
-
-		private _unlimitedItemTypes = [
-			"antiInfantryGrenades",
-			"smokeGrenades",
-			"sidearms"
-		];
-
 		if (_x in _unlimitedLoadoutItemTypes) then {
 			_dataStore set [_x, _items];
 			_initialRebelEquipment append _items;
 			continue
-		} else {
-			if (_x in _unlimitedItemTypes) then {
-				_initialRebelEquipment append _items;
-				continue
-			};
 		};
 		
 		{
@@ -233,22 +214,38 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 					_initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity];
 					_initialRebelEquipment pushBackUnique [_ammo, A3UE_FM_initialItemQuantity];
 				};
+				case ("Handguns" in _categories): {
+					// * Add a random compatible mag for this weapon to the items list if one isn't defined (and thus added to IRE) by the faction template
+					private _potentialMags = _items select [_forEachIndex + 1, 4];
+					private _compatMags = compatibleMagazines _x;
+					if ((_potentialMags arrayIntersect _compatMags) isEqualTo []) then {
+						private _mag = selectRandom _compatMags;
+						_initialRebelEquipment pushBackUnique _mag;
+					} else {
+						_magsToUnlock append (_potentialMags arrayIntersect _compatMags);
+					};
+
+					_initialRebelEquipment pushBackUnique _x;
+				};
 				case ("Weapons" in _categories): {
 					// * Add a random compatible mag for this weapon to the items list if one isn't defined (and thus added to IRE) by the faction template
 					private _potentialMags = _items select [_forEachIndex + 1, 4];
 					private _compatMags = compatibleMagazines _x;
-					if (count (_potentialMags arrayIntersect _compatMags) isEqualTo 0) then {
-						_items pushBackUnique (selectRandom _compatMags)
+					if ((_potentialMags arrayIntersect _compatMags) isEqualTo []) then {
+						private _mag = selectRandom _compatMags;
+						_items pushBackUnique _mag;
 					};
 
-					_initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity]
+					_initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity];
 				};
 				case ("Grenades" in _categories);
-				case ("MagSmokeShell" in _categories);
+				case ("MagSmokeShell" in _categories): { _initialRebelEquipment pushBackUnique _x };
 				case ("Explosives" in _categories);
 				case ("MagMissile" in _categories);
 				case ("MagRocket" in _categories): { _initialRebelEquipment pushBackUnique [_x, A3UE_FM_initialItemQuantity] };
 				case ("Magazines" in _categories): {
+					if (_x in _magsToUnlock) then { _initialRebelEquipment pushBackUnique _x; continue };
+					
 					private _magCap = getNumber (configFile >> "CfgMagazines" >> _x >> "count");
 					_initialRebelEquipment pushBackUnique [_x, [20*_magCap min minWeaps*_magCap, 25*_magCap] select (minWeaps < 0)];
 				};
@@ -265,6 +262,9 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
 	if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
 	_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
+
+	// * Select "worst" of primary weapons to start unlocked
+	if (!pistolStart) then { [] spawn A3UE_FM_fnc_addStartingWeapon };
 };
 
 private _fnc_generateAndSaveRebelUnitsToTemplate = {

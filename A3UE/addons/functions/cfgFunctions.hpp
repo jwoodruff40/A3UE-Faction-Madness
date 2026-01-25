@@ -11,13 +11,22 @@ class CfgFunctions
         class FunctionsTemplates 
         {
             class compatibilityLoadFaction { file = QPATHTOFOLDER(Templates\fn_compatibilityLoadFaction.sqf); };
-            class convertToRebelLoadFaction { file = QPATHTOFOLDER(Templates\fn_convertToRebelLoadFaction.sqf); };
+            //class convertToRebelLoadFaction { file = QPATHTOFOLDER(Templates\fn_convertToRebelLoadFaction.sqf); };
         };
 
         class REINF
         {
             class equipRebel { file = QPATHTOFOLDER(REINF\fn_equipRebel.sqf); };
             class reDress { file = QPATHTOFOLDER(REINF\fn_reDress.sqf); };
+        };
+    };
+
+    class PREFIX
+    {
+        class FactionMadness
+        {
+            class addStartingWeapon { file = QPATHTOFOLDER(FactionMadness\fn_addStartingWeapon.sqf); };
+            class convertToRebelLoadFaction { file = QPATHTOFOLDER(FactionMadness\fn_convertToRebelLoadFaction.sqf); };
         };
     };
 };
