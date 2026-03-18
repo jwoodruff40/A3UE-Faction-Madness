@@ -19,7 +19,7 @@ Example:
 #include "..\..\dialogues\textures.inc"
 #include "..\..\script_component.hpp"
 #define BOTTOM safeZoneH + safeZoneY
-#define ACTION_KEY(ACTION) (actionKeysNames[QEGVAR(core,ACTION), 1, "Keyboard"])
+#define ACTION_KEY(ACTION) (actionKeysNames["A3A_core_"+QUOTE(ACTION), 1, "Keyboard"])
 FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
