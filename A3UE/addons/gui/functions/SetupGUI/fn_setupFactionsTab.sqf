@@ -22,6 +22,7 @@ Return Value:
 
 */
 
+#include "\x\A3A\addons\gui\dialogues\ids.inc"
 #include "..\..\dialogues\ids.inc"
 #include "\x\A3A\addons\gui\dialogues\defines.hpp"
 #include "\x\A3A\addons\gui\dialogues\textures.inc"

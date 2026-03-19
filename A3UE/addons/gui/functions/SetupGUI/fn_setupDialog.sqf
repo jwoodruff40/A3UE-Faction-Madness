@@ -13,9 +13,9 @@ Return Value:
 
 */
 
-#include "..\..\dialogues\ids.inc"
-#include "..\..\dialogues\defines.hpp"
-#include "..\..\dialogues\textures.inc"
+#include "\x\A3A\addons\gui\dialogues\ids.inc"
+#include "\x\A3A\addons\gui\dialogues\defines.hpp"
+#include "\x\A3A\addons\gui\dialogues\textures.inc"
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -73,7 +73,7 @@ switch (_mode) do
             waitUntil { sleep 1; isNull findDisplay 49 and !dialog };       // escape menu or user dialog
             if (isNil "A3A_setup_saveData") exitWith {};                        // might have been server-closed during the sleep
             Debug("Restarting setup dialog");
-            createDialog "A3A_setupDialog";
+            createDialog "A3UE_FM_setupDialog";
         };
     };
 
@@ -160,7 +160,7 @@ switch (_mode) do
             waitUntil { sleep 1; !isNull findDisplay 46 and isNull findDisplay 49 and !dialog };
         };
         Debug("Creating setup dialog");
-        createDialog "A3A_setupDialog";
+        createDialog "A3UE_FM_setupDialog";
     };
 
     case ("serverClose"):
