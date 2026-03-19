@@ -3,6 +3,11 @@ class CfgFunctions
     //be careful when overwriting functions as version updates can break your extension
     class A3A 
     {
+        class Base
+        {
+            class initPetros { file = QPATHTOFOLDER(Base\fn_initPetros.sqf); };
+        };
+        
         class Dialogs
         {
             class squadRecruit { file = QPATHTOFOLDER(Dialogs\fn_squadRecruit.sqf); };
