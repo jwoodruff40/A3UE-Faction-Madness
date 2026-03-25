@@ -6,7 +6,10 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3A_core"};
+        requiredAddons[] = {
+            "A3A_gui",
+            "A3A_ultimate" // Require Antistasi Ultimate, not community or plus
+        };
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";
@@ -22,10 +25,9 @@ class CfgPatches {
     #include "CfgFunctions.hpp"
 #endif
 
-// Whether order should be maintained is unknown.
-#include "dialogues\defines.hpp"
-#include "dialogues\textures.inc"
-#include "dialogues\controls.hpp"
-#include "dialogues\dialogs.hpp"
-#include "dialogues\statusBar.hpp"
-// #include "dialogues\rsc.hpp"
+
+#include "\x\A3A\addons\gui\dialogues\defines.hpp"
+#include "\x\A3A\addons\gui\dialogues\controls.hpp"
+#include "\x\A3A\addons\gui\dialogues\dialogs.hpp"
+#include "dialogues\ids.inc"
+#include "dialogues\setupDialog.hpp"

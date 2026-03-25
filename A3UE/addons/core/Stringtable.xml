@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
     <Package name="A3UE-Faction-Madness">
+        <Key ID="STR_A3UE_params_FM_desc">
+            <Original>Parameters for Faction Madness</Original>
+            <French>Paramètres pour Faction Madness</French>
+            <Russian>Параметры для Безумия фракции</Russian>
+            <German>Parameter für Fraktionswahnsinn</German>
+            <Czech>Parametry pro Faction Madness</Czech>
+            <Chinesesimp>派系疯狂的参数</Chinesesimp>
+            <Korean>팩션 매드니스의 매개변수</Korean>
+            <Italian>Parametri per Faction Madness</Italian>
+            <Portuguese>Parâmetros para Loucura de Facção</Portuguese>
+            <Spanish>Parámetros para Facción Locura</Spanish>
+            <Japanese>ファクションマッドネスのパラメーター</Japanese>
+            <Polish>Parametry dla Faction Madness</Polish>
+            <Turkish>Faction Madness için Parametreler</Turkish>
+        </Key>
         <Key ID="STR_A3UE_params_FM_initialItemQuantity">
             <Original>Initial quantity of faction equipment (weapons, attachments, armor, etc) added to arsenal</Original>
             <French>Quantité initiale d'équipement de faction (armes, accessoires, armures, etc.) ajoutée à l'arsenal</French>

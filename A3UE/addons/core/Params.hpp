@@ -6,9 +6,9 @@ class Params
     class FactionMadnessParams: ExtenderParams
     {
         title = "[A3UE] Faction Madness";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
+        values[] = {};
+        texts[] = {};
+        tooltip = $STR_A3UE_params_FM_desc;
     };
     class A3UE_FM_initialItemQuantity: ExtenderParams
     {
