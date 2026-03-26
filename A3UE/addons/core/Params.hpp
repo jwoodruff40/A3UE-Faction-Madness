@@ -28,4 +28,12 @@ class Params
         default = 0;
     };
     class FactionMadnessSpacer : AllParams {};
+
+    class BuilderParams : AllParams {};
+
+    class maxConstructions : BuilderParams
+    {
+        values[] = {0,50,100,250,355,500,750,1000,5000};
+        texts[] = {"0", "50", "100", "250", "355", "500", "750", "1000", "5000"};
+    };
 };
