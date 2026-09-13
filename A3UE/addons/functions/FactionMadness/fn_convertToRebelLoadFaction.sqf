@@ -290,7 +290,12 @@ private _fnc_saveNames = {
 } forEach _filepaths;
 
 // * overrides
-// _dataStore set ["flagMarkerType", "flag_FIA"];
+
+// * Fix (add) flag variables if missing (when converting a rival template)
+if (isNil {_dataStore get "flag"}) then { ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate; };
+if (isNil {_dataStore get "flagTexture"}) then { ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate; };
+if (isNil {_dataStore get "flagMarkerType"}) then { ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate; };
+
 _dataStore set ["convertedToRebel", true];
 { 
 	if (isNil {_dataStore get _x}) then { _dataStore set [_x, []] }
