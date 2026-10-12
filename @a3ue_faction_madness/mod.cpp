@@ -1,0 +1,14 @@
+name = "[A3UE] Faction Madness";
+picture = "a3ue_faction_madness.paa";
+actionName = "Website";
+action = "https://github.com/jwoodruff40/A3UE-Faction-Madness";
+description = "[A3UE] Faction Madness v2.0.0";
+logo = "a3ue_faction_madness.paa";
+logoOver = "a3ue_faction_madness.paa";
+tooltip = "[A3UE] Faction Madness";
+tooltipOwned = "[A3UE] Faction Madness Owned";
+overview = "It's an extender for Antistasi Ultimate allowing you to use any faction as the rebel faction.";
+author = "Creep'nCrunch";
+overviewPicture = "a3ue_faction_madness.paa";
+overviewText = "[A3UE] Faction Madness";
+overviewFootnote = "<br /><br /><t color='#999999'>This content is under Arma Public License Share Alike (APL-SA) License.<br />Press <t /><t color='#19d3ff'>Left Shift + P<t /><t color='#999999'> to open the store page for more information.<t />";

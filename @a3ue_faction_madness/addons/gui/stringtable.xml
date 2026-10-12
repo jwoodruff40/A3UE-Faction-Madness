@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3UE_FACTION_MADNESS">
+    <Package name="GUI">
+        <Container name="SetupDialog">
+            <Key ID="STR_A3UE_FACTION_MADNESS_GUI_SetupDialog_faction_madness">
+                <Original>Faction Madness</Original>
+                <Italian>Fazione Follia</Italian>
+                <Korean>파벌 광기</Korean>
+                <Russian>Безумие фракции</Russian>
+                <Portuguese>Loucura de Facção</Portuguese>
+                <Chinesesimp>派系狂热</Chinesesimp>
+            </Key>
+        </Container>
+    </Package>
+</Project>

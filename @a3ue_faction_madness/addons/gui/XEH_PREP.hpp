@@ -1,0 +1,2 @@
+PREP(setupDialog);
+PREP(setupFactionsTab);

@@ -1,0 +1,2 @@
+PREP(addStartingWeapon);
+PREP(convertToRebelLoadFaction);
