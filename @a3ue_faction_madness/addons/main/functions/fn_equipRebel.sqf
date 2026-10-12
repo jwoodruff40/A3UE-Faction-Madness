@@ -90,8 +90,7 @@ private _fnc_addVest = {
     params ["_unit"];
 
     private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
-    if (isNil "_vest" || {_vest == ""}) then { _vest = selectRandomWeighted (A3A_rebelGear get "CivilianVests") };
-    if (isNil "_vest" || {_vest == ""}) exitWith {};
+    if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "CivilianVests") };
     _unit addVest _vest;
 };
 
@@ -151,7 +150,7 @@ private _fnc_addPrimary = {
     };
     
     if (isNil "_weaponType" || {_weaponType isEqualTo []}) exitWith {};
-    private _hasMags = !(_weaponType in keys A3A_rebelGear) && {[_unit, _weaponType] call _fnc_hasMags};
+    private _hasMags = !(_weaponType in A3A_rebelGear) && {[_unit, _weaponType] call _fnc_hasMags};
     [_unit, _weaponType, [_totalMagWeight, 0] select (_hasMags)] call A3A_fnc_randomWeapon;
 };
 
@@ -190,7 +189,7 @@ private _fnc_addHandgun = {
     private _weaponType = if !(isNil "_overrideClass") then { _overrideClass } else { "Handguns" };
     
     if (isNil "_weaponType" || {_weaponType isEqualTo []}) exitWith {};
-    private _hasMags = !(_weaponType in keys A3A_rebelGear) && {[_unit, _weaponType] call _fnc_hasMags};
+    private _hasMags = !(_weaponType in A3A_rebelGear) && {[_unit, _weaponType] call _fnc_hasMags};
     [_unit, _weaponType, [10, 0] select (_hasMags)] call A3A_fnc_randomWeapon;
 };
 
@@ -210,7 +209,7 @@ private _fnc_addAssignedItems = {
         _unit call _fnc_addRadio;
         {
             private _item = selectRandom _x;
-            if (!isNil {"_item"}) then { _unit linkItem _item };
+            if (!isNil "_item") then { _unit linkItem _item };
         } forEach [unlockedMaps, unlockedCompasses, unlockedWatches]; // should be populated even with no unlocks; GPS not included due to potential of including UAV terminals
     } else {
         { if (!isNil "_x") then { _unit linkItem _x } } forEach (_overrideClass);
@@ -357,6 +356,6 @@ _unit call _fnc_addClassEquip;
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
 
-Verbose_3("Class %1, type %2, loadout %3",_unitType,_recruitType,str (getUnitLoadout _unit));
+Verbose_3("Class %1, type %2, loadout %3", _unitType, _recruitType, str (getUnitLoadout _unit));
 
 if (_recruitType isEqualTo 0) then { _unit setVariable ["orgLoadout", getUnitLoadout _unit, true] };
