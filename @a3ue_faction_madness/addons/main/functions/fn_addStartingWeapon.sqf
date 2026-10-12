@@ -1,5 +1,4 @@
 #include "..\script_component.hpp"
-FIX_LINE_NUMBERS()
 
 waitUntil {sleep 0.1; !isNil {initVarServerCompleted}};
 

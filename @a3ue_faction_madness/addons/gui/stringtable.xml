@@ -5,9 +5,9 @@
             <Key ID="STR_A3UE_FACTION_MADNESS_GUI_SetupDialog_faction_madness">
                 <Original>Faction Madness</Original>
                 <Italian>Fazione Follia</Italian>
-                <Korean>파벌 광기</Korean>
-                <Russian>Безумие фракции</Russian>
                 <Portuguese>Loucura de Facção</Portuguese>
+                <Russian>Безумие фракции</Russian>
+                <Korean>파벌 광기</Korean>
                 <Chinesesimp>派系狂热</Chinesesimp>
             </Key>
         </Container>

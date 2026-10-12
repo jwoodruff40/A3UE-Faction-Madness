@@ -1,5 +1,4 @@
-#include "..\script_component.hpp"
-FIX_LINE_NUMBERS()
+#include "..\..\script_component.hpp"
 Info("initPetros started");
 scriptName "fn_initPetros";
 

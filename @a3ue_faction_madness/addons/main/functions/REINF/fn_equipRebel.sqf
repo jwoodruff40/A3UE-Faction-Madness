@@ -31,9 +31,8 @@ loadout = [[primary], [secondary], [handgun], [uniform], [vest], [backpack], "he
 assigned items = [map, gps/uav term, radio, compass, watch, nvg]
 */
 
-#include "..\script_component.hpp"
+#include "..\..\script_component.hpp"
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
-FIX_LINE_NUMBERS()
 
 params ["_unit", "_recruitType", ["_forceClass", ""]];
 

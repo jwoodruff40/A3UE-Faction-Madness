@@ -11,8 +11,7 @@
  *    Namespace containing faction information
  * Example Usage:
  */
-#include "..\script_component.hpp"
-FIX_LINE_NUMBERS()
+#include "..\..\script_component.hpp"
 params ["_file", "_side"];
 
 Info_2("Compatibility loading template: '%1' as side %2", _file, _side);

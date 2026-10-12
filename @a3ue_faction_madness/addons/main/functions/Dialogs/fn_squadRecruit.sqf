@@ -1,5 +1,4 @@
-#include "..\script_component.hpp"
-FIX_LINE_NUMBERS()
+#include "..\..\script_component.hpp"
 
 private ["_childControl","_costs","_costHR"];
 if (!([player] call A3A_fnc_hasRadio)) exitWith {

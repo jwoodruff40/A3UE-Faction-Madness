@@ -16,8 +16,7 @@ Return Value:
 #include "\x\A3A\addons\gui\dialogues\ids.inc"
 #include "\x\A3A\addons\gui\dialogues\defines.hpp"
 #include "\x\A3A\addons\gui\dialogues\textures.inc"
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
+#include "..\script_component.hpp"
 
 params["_mode", "_params"];
 
