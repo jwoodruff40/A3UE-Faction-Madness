@@ -1,2 +1,1 @@
-PREP(setupDialog);
 PREP(setupFactionsTab);
