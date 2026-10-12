@@ -91,6 +91,7 @@ private _fnc_addVest = {
 
     private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
     if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "CivilianVests") };
+    if (isNil "_vest" || {_vest == ""}) exitWith {};
     _unit addVest _vest;
 };
 
