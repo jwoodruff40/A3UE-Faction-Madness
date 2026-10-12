@@ -357,6 +357,6 @@ _unit call _fnc_addClassEquip;
 // remove backpack if empty, otherwise squad troops will throw it on the ground
 if (backpackItems _unit isEqualTo []) then { removeBackpack _unit };
 
-Verbose_3("Class %1, type %2, loadout %3", _unitType, _recruitType, str (getUnitLoadout _unit));
+Verbose_3("Class %1, type %2, loadout %3",_unitType,_recruitType,str (getUnitLoadout _unit));
 
 if (_recruitType isEqualTo 0) then { _unit setVariable ["orgLoadout", getUnitLoadout _unit, true] };
