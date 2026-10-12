@@ -61,7 +61,7 @@ private _fnc_saveToTemplate = {
 		"vehiclesRivalsUAVs"
 	];
 
-	private _enemyToRebelConfigMap = createHashmapFromArray [
+	private _enemyToRebelConfigMap = createHashMapFromArray [
 		["mortarMagazineHE", "staticMortarMagHE"],
 		["mortarMagazineSmoke", "staticMortarMagSmoke"],
 		["mortarMagazineFlare", "staticMortarMagFlare"],
@@ -153,7 +153,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	if (_initialRebelEquipment isNotEqualTo []) exitWith {};
 
 	// * Misc item conversions from enemy template loadoutData to rebel template
-	private _minesConfigMap = createHashmapFromArray [
+	private _minesConfigMap = createHashMapFromArray [
 		["ATMines", "minesAT"],
 		["APMines", "minesAPERS"]
 	];
@@ -163,7 +163,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 		_dataStore set [_y, _items];
 	} forEach _minesConfigMap;
 	
-	private _explosivesConfigMap = createHashmapFromArray [
+	private _explosivesConfigMap = createHashMapFromArray [
 		["lightExplosives", "breachingExplosivesAPC"],
 		["heavyExplosives", "breachingExplosivesTank"]
 	];
@@ -263,7 +263,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 	_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 
 	// * Select "worst" of primary weapons to start unlocked
-	if (!pistolStart) then { [] spawn A3UE_FM_fnc_addStartingWeapon };
+	if (!pistolStart) then { [] spawn a3ue_faction_madness_main_fnc_addStartingWeapon };
 };
 
 private _fnc_generateAndSaveRebelUnitsToTemplate = {
@@ -277,7 +277,7 @@ private _fnc_generateAndSaveRebelUnitsToTemplate = {
 
 private _fnc_saveNames = {
     params ["_names"];
-    private _nameConfig = configfile >> "CfgWorlds" >> "GenericNames" >> _names;
+    private _nameConfig = configFile >> "CfgWorlds" >> "GenericNames" >> _names;
     private _firstNames = configProperties [_nameConfig >> "FirstNames"] apply { getText(_x) };
     ["firstNames", _firstNames] call _fnc_saveToTemplate;
     private _lastNames = configProperties [_nameConfig >> "LastNames"] apply { getText(_x) };

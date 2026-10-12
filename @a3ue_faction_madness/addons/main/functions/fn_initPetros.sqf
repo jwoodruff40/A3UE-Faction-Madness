@@ -1,4 +1,4 @@
-#include "..\..\script_component.hpp"
+#include "..\script_component.hpp"
 Info("initPetros started");
 scriptName "fn_initPetros";
 
@@ -76,7 +76,7 @@ petros addEventHandler
     }
 ];
 
-petros addMPEventHandler ["mpkilled",
+petros addMPEventHandler ["MPKilled",
 {
     removeAllActions petros;
     if (!isServer) exitWith {};

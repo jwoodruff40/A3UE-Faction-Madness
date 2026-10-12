@@ -11,10 +11,10 @@
  *    Namespace containing faction information
  * Example Usage:
  */
-#include "..\..\script_component.hpp"
+#include "..\script_component.hpp"
 params ["_file", "_side"];
 
-Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
+Info_2("Compatibility loading template: '%1' as side %2",_file,_side);
 
 private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","CivilianDefaults"] #([west, east, independent, civilian] find _side);
 _factionDefaultFile = "\x\A3A\addons\core\Templates\Templates\FactionDefaults\" + _factionDefaultFile + ".sqf";
@@ -22,7 +22,7 @@ _factionDefaultFile = "\x\A3A\addons\core\Templates\Templates\FactionDefaults\" 
 // * If we're using an Occ or Inv faction as rebels, we need to convert the faction from Occ / Inv to rebel template style
 private _factionSide = getText (configFile >> "A3A" >> "Templates" >> A3A_saveData get "factions" select 2 >> "side");
 private _convertToRebel = (_side == teamPlayer) && {_factionSide in ["Occ", "Inv", "Riv"]};
-private _faction = [[_factionDefaultFile,_file]] call ([A3A_fnc_loadFaction, A3UE_FM_fnc_convertToRebelLoadFaction] select (_convertToRebel));
+private _faction = [[_factionDefaultFile,_file]] call ([A3A_fnc_loadFaction, a3ue_faction_madness_main_fnc_convertToRebelLoadFaction] select (_convertToRebel));
 
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
 missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction];
@@ -78,7 +78,7 @@ if (_side in [Occupants, Invaders]) then {
 // Add civilian vehicles to rebel faction if using Occ/Inv as rebel
 // Must be run after generating civilian faction hashmap, hence its location here instead of in fn_convertToRebelLoadFaction
 if (_side == civilian && {A3A_faction_reb getOrDefault ["convertedToRebel", false] && {!(A3A_faction_civ getOrDefault ["attributeLowCiv", false] || {A3A_faction_civ getOrDefault ["attributeCivNonHuman", false]})}}) then {
-    private _civToRebelConfigMap = createHashmapFromArray [
+    private _civToRebelConfigMap = createHashMapFromArray [
         ["vehiclesCivCar", "vehiclesCivCar"],
         ["vehiclesCivTruck", "vehiclesCivTruck"],
         ["vehiclesCivIndustrial", "vehiclesCivSupply"],

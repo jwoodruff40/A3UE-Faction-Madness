@@ -32,7 +32,7 @@
 
 params ["_mode", "_params"];
 
-Debug_1("setupFactionsTab called with mode %1", _mode);
+Debug_1("setupFactionsTab called with mode %1",_mode);
 
 private _display = findDisplay A3A_IDD_SETUPDIALOG;
 
@@ -102,8 +102,8 @@ switch (_mode) do
         private _failedFactions = [];
         {
             _sfact = A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_x;
-            if !(isClass _sfact) then { Info_1("Bad saved faction name %1", _x); _failedFactions pushBack _x };
-            if !(_sfact call _fnc_factionLoaded) then { Info_1("Saved faction %1 not loadable", _x); _failedFactions pushBack _x };
+            if !(isClass _sfact) then { Info_1("Bad saved faction name %1",_x); _failedFactions pushBack _x };
+            if !(_sfact call _fnc_factionLoaded) then { Info_1("Saved faction %1 not loadable",_x); _failedFactions pushBack _x };
             _factions#_forEachIndex pushBackUnique _sfact;				// does nothing if already in list
         } forEach _savedFactions;
 

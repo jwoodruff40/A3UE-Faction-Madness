@@ -1,6 +1,6 @@
-#include "..\..\script_component.hpp"
+#include "..\script_component.hpp"
 
-private ["_childControl","_costs","_costHR"];
+private ["_childControl"];
 if (!([player] call A3A_fnc_hasRadio)) exitWith {
 	[localize "STR_antistasi_dialogs_squad_recruitment_menu_frame_text", localize "STR_A3A_reinf_addFIASquadHC_error_radio"] call SCRT_fnc_misc_deniedHint;
 };
@@ -38,7 +38,7 @@ _costHR = 0;
 (_display displayCtrl 107) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-_costs = 2*_crewCost + ([(FactionGet(reb, "staticMGs")) # 0] call A3A_fnc_vehiclePrice);
+_costs = 2*_crewCost + ([(FactionGet(reb,"staticMGs")) # 0] call A3A_fnc_vehiclePrice);
 (_display displayCtrl 108) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costs = 0;
@@ -47,7 +47,7 @@ _costHR = 0;
 (_display displayCtrl 112) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;
-if (count FactionGet(reb, "vehiclesAT") > 0) then { _costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesAT")) # 0] call A3A_fnc_vehiclePrice) };
+if (count FactionGet(reb,"vehiclesAT") > 0) then { _costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesAT")) # 0] call A3A_fnc_vehiclePrice) };
 (_display displayCtrl 109) ctrlSetTooltip format [localize "STR_dialog_cost_hire",_costs,_costHR, A3A_faction_civ get "currencySymbol"];
 
 _costHR = 2;

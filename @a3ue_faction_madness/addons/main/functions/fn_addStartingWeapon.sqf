@@ -2,7 +2,7 @@
 
 waitUntil {sleep 0.1; !isNil {initVarServerCompleted}};
 
-private _initialRebelEquipment = FactionGet(reb, "initialRebelEquipment");
+private _initialRebelEquipment = FactionGet(reb,"initialRebelEquipment");
 private _rebelWeapons = (flatten _initialRebelEquipment) select {_x isEqualType "" && {_x in allWeapons}};
 
 private _minWeight = 1000;
@@ -16,12 +16,12 @@ private _weapon = "";
 		_minWeight = _weight;
 		_weapon = _x;
 	};
-	Debug_2("weapon %1 | weight %2", _x, _weight);
+	Debug_2("weapon %1 | weight %2",_x,_weight);
 } forEach _rebelWeapons;
 
 if (_weapon isEqualTo "") exitWith { false };
 
-Debug_1("selected starting weapon %1", _weapon);
+Debug_1("selected starting weapon %1",_weapon);
 
 private _rebelMagazines = (flatten _initialRebelEquipment) select {_x isEqualType "" && {_x in allMagazines}};
 private _compMagazines = compatibleMagazines _weapon;
