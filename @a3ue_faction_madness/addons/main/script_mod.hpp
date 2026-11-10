@@ -26,7 +26,7 @@
  * notice dialog, keep these numbers up to date to A3U's current MAJOR.MINOR version.
  */
 #define A3A_COMPAT_MAJOR 12
-#define A3A_COMPAT_MINOR 0
+#define A3A_COMPAT_MINOR 4
 
 #ifdef COMPONENT_BEAUTIFIED
     #define COMPONENT_NAME QUOTE(a3ue_faction_madness - COMPONENT_BEAUTIFIED)
